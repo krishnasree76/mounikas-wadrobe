@@ -36,48 +36,47 @@ export function Header() {
       {/* Main header */}
       <div className="glass border-b border-border/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="flex items-center justify-between gap-4 py-4">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 sm:gap-3 shrink-0 group">
-  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-primary/20 shadow-lg bg-white">
-    <img
-      src={logo}
-      alt="Mounika's Wardrobe"
-      className="w-full h-full object-cover"
-    />
-  </div>
-
-  <span className="font-display hidden sm:inline text-xl md:text-2xl text-foreground leading-none">
-    Mounika's <span className="text-luxe">Wardrobe</span>
-  </span>
-</Link>
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 py-4">
+            {/* Top row for mobile: Logo & Icons */}
+            <div className="flex items-center justify-between w-full md:w-auto">
+              <Link to="/" className="flex items-center gap-2 sm:gap-3 shrink-0 group">
+                <div className="w-10 h-10 md:w-14 md:h-14 shrink-0 rounded-full overflow-hidden border-2 border-primary/20 shadow-lg bg-white">
+                  <img src={logo} alt="Mounika's Wardrobe" className="w-full h-full object-cover" />
+                </div>
+                <span className="font-display text-xl md:text-2xl text-foreground leading-none">
+                  Mounika's <span className="text-luxe">Wardrobe</span>
+                </span>
+              </Link>
+              
+              <div className="flex items-center gap-1 md:hidden">
+                <IconBtn label="Cart" to="/cart" badge={2}><ShoppingBag className="w-5 h-5" /></IconBtn>
+                <button
+                  aria-label="Menu"
+                  onClick={() => setMobileOpen(true)}
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-accent transition"
+                >
+                  <Menu className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
 
             {/* Search */}
-            <div className="hidden md:flex flex-1 max-w-xl">
-              <label className="relative w-full">
+            <div className="flex-1 w-full md:max-w-xl">
+              <label className="relative w-full block">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <input
                   type="search"
-                  placeholder="Search sarees, lehengas, bridal collection..."
+                  placeholder="Search sarees, lehengas..."
                   className="w-full h-11 pl-11 pr-4 rounded-full bg-white/80 border border-border focus:outline-none focus:ring-2 focus:ring-primary/40 text-sm placeholder:text-muted-foreground"
                 />
               </label>
             </div>
 
-            {/* Icons */}
-            <div className="flex items-center gap-1 md:gap-2">
-              <div className="hidden sm:inline-flex items-center gap-1 md:gap-2">
-                <IconBtn label="Account" to="/account"><User className="w-5 h-5" /></IconBtn>
-                <IconBtn label="Wishlist" to="/wishlist" badge={3}><Heart className="w-5 h-5" /></IconBtn>
-              </div>
+            {/* Desktop Icons */}
+            <div className="hidden md:flex items-center gap-1 md:gap-2">
+              <IconBtn label="Account" to="/account"><User className="w-5 h-5" /></IconBtn>
+              <IconBtn label="Wishlist" to="/wishlist" badge={3}><Heart className="w-5 h-5" /></IconBtn>
               <IconBtn label="Cart" to="/cart" badge={2}><ShoppingBag className="w-5 h-5" /></IconBtn>
-              <button
-                aria-label="Menu"
-                onClick={() => setMobileOpen(true)}
-                className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-accent transition"
-              >
-                <Menu className="w-5 h-5" />
-              </button>
             </div>
           </div>
 
