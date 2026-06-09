@@ -145,9 +145,9 @@ function Hero() {
               transition={{ delay: 1 }}
               className="absolute top-2 right-2 md:-top-6 md:-right-6 lg:-right-10 glass rounded-2xl px-4 py-3 shadow-luxe"
             >
-              <div className="flex items-center gap-1.5 text-[color:var(--gold)]">
+              {/* <div className="flex items-center gap-1.5 text-[color:var(--gold)]">
                 {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
-              </div>
+              </div> */}
               {/* <div className="text-xs text-muted-foreground mt-1">Loved by 12,000+ women</div> */}
             </motion.div>
           </div>
