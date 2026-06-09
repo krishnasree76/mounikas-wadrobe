@@ -1,1 +1,0 @@
-import{j as o}from"./index-aacPJJV0.js";import{L as t}from"./Layout-IMgC_cYS.js";const s=()=>o.jsx(t,{children:o.jsx("div",{className:"py-32 text-center font-display text-3xl",children:"Product not found"})});export{s as notFoundComponent};
