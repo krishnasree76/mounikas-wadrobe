@@ -148,7 +148,7 @@ function Hero() {
               <div className="flex items-center gap-1.5 text-[color:var(--gold)]">
                 {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
               </div>
-              <div className="text-xs text-muted-foreground mt-1">Loved by 12,000+ women</div>
+              {/* <div className="text-xs text-muted-foreground mt-1">Loved by 12,000+ women</div> */}
             </motion.div>
           </div>
         </motion.div>
