@@ -68,7 +68,7 @@ function Hero() {
             <Sparkles className="w-3.5 h-3.5" /> The Festive Edit 2026
           </motion.span>
 
-          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] text-foreground">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] text-foreground">
             Mounika's
             <br />
             <span className="text-luxe italic">Wardrobe</span>
@@ -93,15 +93,15 @@ function Hero() {
             </Link>
           </div>
 
-          <div className="mt-12 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
+          <div className="mt-12 grid grid-cols-3 gap-2 sm:gap-4 max-w-md mx-auto lg:mx-0">
             {[
               { n: "500+", l: "Designs" },
               { n: "12K+", l: "Happy Women" },
               { n: "4.9★", l: "Rated" },
             ].map((s) => (
               <div key={s.l} className="text-center lg:text-left">
-                <div className="font-display text-2xl text-primary">{s.n}</div>
-                <div className="text-xs uppercase tracking-wider text-muted-foreground mt-1">{s.l}</div>
+                <div className="font-display text-xl sm:text-2xl text-primary">{s.n}</div>
+                <div className="text-[10px] sm:text-xs uppercase tracking-wider text-muted-foreground mt-1">{s.l}</div>
               </div>
             ))}
           </div>

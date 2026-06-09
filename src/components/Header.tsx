@@ -38,8 +38,8 @@ export function Header() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="flex items-center justify-between gap-4 py-4">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 shrink-0 group">
-  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-primary/20 shadow-lg bg-white">
+            <Link to="/" className="flex items-center gap-2 sm:gap-3 shrink-0 group">
+  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-primary/20 shadow-lg bg-white">
     <img
       src={logo}
       alt="Mounika's Wardrobe"
@@ -47,7 +47,7 @@ export function Header() {
     />
   </div>
 
-  <span className="font-display text-xl md:text-2xl text-foreground leading-none">
+  <span className="font-display hidden sm:inline text-xl md:text-2xl text-foreground leading-none">
     Mounika's <span className="text-luxe">Wardrobe</span>
   </span>
 </Link>
@@ -66,8 +66,10 @@ export function Header() {
 
             {/* Icons */}
             <div className="flex items-center gap-1 md:gap-2">
-              <IconBtn label="Account" to="/account"><User className="w-5 h-5" /></IconBtn>
-              <IconBtn label="Wishlist" to="/wishlist" badge={3}><Heart className="w-5 h-5" /></IconBtn>
+              <div className="hidden sm:inline-flex items-center gap-1 md:gap-2">
+                <IconBtn label="Account" to="/account"><User className="w-5 h-5" /></IconBtn>
+                <IconBtn label="Wishlist" to="/wishlist" badge={3}><Heart className="w-5 h-5" /></IconBtn>
+              </div>
               <IconBtn label="Cart" to="/cart" badge={2}><ShoppingBag className="w-5 h-5" /></IconBtn>
               <button
                 aria-label="Menu"
@@ -132,6 +134,15 @@ export function Header() {
                 <input placeholder="Search..." className="w-full h-11 pl-11 pr-4 rounded-full bg-accent/40 border border-border text-sm focus:outline-none" />
               </label>
               <ul className="space-y-1">
+                <li className="sm:hidden mb-4 border-b border-border pb-4 flex gap-6">
+                  <Link to="/account" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 text-sm text-foreground/90">
+                    <User className="w-5 h-5" /> Account
+                  </Link>
+                  <Link to="/wishlist" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 text-sm text-foreground/90 relative">
+                    <Heart className="w-5 h-5" /> Wishlist
+                    <span className="bg-primary text-primary-foreground text-[10px] px-1.5 py-0.5 rounded-full leading-none">3</span>
+                  </Link>
+                </li>
                 {navCategories.map((c) => (
                   <li key={c}>
                     <Link

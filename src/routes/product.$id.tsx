@@ -43,12 +43,12 @@ function ProductPage() {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
           {/* Gallery */}
           <div className="flex flex-col-reverse md:flex-row gap-4">
-            <div className="flex md:flex-col gap-3">
+            <div className="flex md:flex-col gap-3 overflow-x-auto pb-2 md:pb-0 hide-scrollbar">
               {gallery.map((g, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveImg(i)}
-                  className={`relative w-20 h-24 rounded-xl overflow-hidden border-2 transition ${activeImg === i ? "border-primary shadow-luxe" : "border-transparent opacity-70 hover:opacity-100"}`}
+                  className={`relative shrink-0 w-20 h-24 rounded-xl overflow-hidden border-2 transition ${activeImg === i ? "border-primary shadow-luxe" : "border-transparent opacity-70 hover:opacity-100"}`}
                 >
                   <img src={g} alt="" className="absolute inset-0 w-full h-full object-cover" />
                 </button>
@@ -115,20 +115,22 @@ function ProductPage() {
               </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <button className="flex-1 min-w-[200px] h-14 rounded-full bg-foreground text-background inline-flex items-center justify-center gap-2 hover:bg-luxe transition">
+            <div className="mt-8 flex flex-wrap sm:flex-nowrap gap-3">
+              <button className="w-full sm:flex-1 sm:min-w-[180px] h-14 rounded-full bg-foreground text-background inline-flex items-center justify-center gap-2 hover:bg-luxe transition">
                 <ShoppingBag className="w-4 h-4" /> Add to Cart
               </button>
-              <button className="flex-1 min-w-[200px] h-14 rounded-full bg-luxe text-white shadow-luxe hover:scale-[1.02] transition">Buy Now</button>
-              <button aria-label="Wishlist" className="w-14 h-14 rounded-full border border-border inline-flex items-center justify-center hover:text-primary hover:border-primary transition">
-                <Heart className="w-5 h-5" />
-              </button>
+              <div className="flex w-full sm:w-auto gap-3 flex-1">
+                <button className="flex-1 sm:min-w-[180px] h-14 rounded-full bg-luxe text-white shadow-luxe hover:scale-[1.02] transition">Buy Now</button>
+                <button aria-label="Wishlist" className="w-14 h-14 shrink-0 rounded-full border border-border inline-flex items-center justify-center hover:text-primary hover:border-primary transition">
+                  <Heart className="w-5 h-5" />
+                </button>
+              </div>
             </div>
 
-            <div className="mt-8 grid grid-cols-3 gap-3 text-xs">
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
               {[{ Icon: Truck, t: "Free Shipping ₹999+" }, { Icon: RotateCcw, t: "Easy Returns" }, { Icon: Shield, t: "Secure Payment" }].map(({ Icon, t }) => (
-                <div key={t} className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-accent/40 text-center">
-                  <Icon className="w-5 h-5 text-primary" /><span className="text-foreground/80">{t}</span>
+                <div key={t} className="flex flex-row sm:flex-col items-center sm:items-center gap-3 sm:gap-2 p-4 rounded-2xl bg-accent/40 text-left sm:text-center">
+                  <Icon className="w-5 h-5 text-primary shrink-0" /><span className="text-foreground/80">{t}</span>
                 </div>
               ))}
             </div>
