@@ -120,7 +120,12 @@
     letter-spacing: -0.01em;
   }
 }
-
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
 @utility text-luxe {
   background: var(--gradient-luxe);
   -webkit-background-clip: text;
@@ -189,8 +194,4 @@
   to {
     transform: translateX(-50%);
   }
-}
-html,
-body {
-  overflow-x: hidden !important;
 }

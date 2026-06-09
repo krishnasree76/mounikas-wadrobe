@@ -5,7 +5,7 @@ import { Link } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
 import { LotusIcon, LotusWatermark, LotusSeparator } from "@/components/Lotus";
 import { ProductCard } from "@/components/ProductCard";
-import { products, categoriesData, occasions, testimonials, instagramPosts } from "@/lib/mock-data";
+import { products, categoriesData,  testimonials, instagramPosts } from "@/lib/mock-data";
 import saree1 from "@/assets/saree1.png";
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,8 +39,16 @@ function HomePage() {
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-soft">
-      <LotusWatermark className="-top-32 -right-32 w-[700px] h-[700px]" opacity={0.06} spin />
-      <LotusWatermark className="-bottom-40 -left-40 w-[600px] h-[600px]" opacity={0.05} />
+      <LotusWatermark
+  className="-top-10 -right-10 md:-top-32 md:-right-32 w-[220px] h-[220px] md:w-[700px] md:h-[700px]"
+  opacity={0.06}
+  spin
+/>
+
+<LotusWatermark
+  className="-bottom-10 -left-10 md:-bottom-40 md:-left-40 w-[200px] h-[200px] md:w-[600px] md:h-[600px]"
+  opacity={0.05}
+/>
       <div className="absolute top-1/3 left-1/4 w-72 h-72 rounded-full bg-primary/20 blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-secondary/20 blur-3xl" />
 
@@ -121,7 +129,7 @@ function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="absolute -bottom-6 -left-6 lg:-left-12 glass rounded-2xl p-4 shadow-luxe flex items-center gap-3 max-w-[240px]"
+              className="absolute bottom-2 left-2 md:-bottom-6 md:-left-6 lg:-left-12 glass rounded-2xl p-4 shadow-luxe flex items-center gap-3 max-w-[240px]"
             >
               <div className="w-12 h-12 rounded-xl bg-luxe inline-flex items-center justify-center">
                 <Gem className="w-5 h-5 text-white" />
@@ -135,7 +143,7 @@ function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
-              className="absolute -top-6 -right-6 lg:-right-10 glass rounded-2xl px-4 py-3 shadow-luxe"
+              className="absolute top-2 right-2 md:-top-6 md:-right-6 lg:-right-10 glass rounded-2xl px-4 py-3 shadow-luxe"
             >
               <div className="flex items-center gap-1.5 text-[color:var(--gold)]">
                 {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
@@ -185,7 +193,10 @@ function Marquee() {
 function Categories() {
   return (
     <section className="relative py-24 overflow-hidden">
-      <LotusWatermark className="top-20 -left-20 w-96 h-96" opacity={0.04} />
+      <LotusWatermark
+  className="top-20 -left-10 md:-left-20 w-[180px] h-[180px] md:w-96 md:h-96"
+  opacity={0.04}
+/>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeader eyebrow="Curated Categories" title="Shop by Category" subtitle="From timeless drapes to regal ensembles — find your perfect look." />
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
@@ -219,37 +230,6 @@ function Categories() {
   );
 }
 
-/* ---------------- OCCASIONS ---------------- */
-// function Occasions() {
-//   return (
-//     <section className="relative py-24 bg-accent/30 overflow-hidden">
-//       <LotusWatermark className="-top-10 right-10 w-72 h-72" opacity={0.05} spin />
-//       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-//         <SectionHeader eyebrow="Dressed for the Moment" title="Shop by Occasion" subtitle="From sacred vows to soirées — couture for every chapter of your story." />
-//         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-//           {occasions.map((o, i) => (
-//             <motion.div
-//               key={o.name}
-//               initial={{ opacity: 0, scale: 0.95 }}
-//               whileInView={{ opacity: 1, scale: 1 }}
-//               viewport={{ once: true }}
-//               transition={{ delay: (i % 4) * 0.07 }}
-//               className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer"
-//             >
-//               <img src={o.image} alt={o.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-//               <div className="absolute inset-0 bg-luxe opacity-70 group-hover:opacity-90 transition" />
-//               <LotusIcon className="absolute top-2 right-2 w-8 h-8 text-white/40" strokeWidth={0.8} />
-//               <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-4">
-//                 <h3 className="font-display text-2xl">{o.name}</h3>
-//                 <span className="text-[10px] tracking-[0.3em] uppercase mt-1 opacity-80">Wear</span>
-//               </div>
-//             </motion.div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
 
 /* ---------------- TRENDING ---------------- */
 function Trending() {
@@ -333,54 +313,16 @@ function NewArrivals() {
   );
 }
 
-/* ---------------- BRIDAL DARK SECTION ---------------- */
-// function BridalSection() {
-//   return (
-//     <section className="relative py-28 bg-foreground text-background overflow-hidden">
-//       <LotusWatermark className="-top-20 left-1/2 -translate-x-1/2 w-[800px] h-[800px] text-[color:var(--gold)]" opacity={0.07} spin />
-//       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,color-mix(in_oklab,var(--primary)_30%,transparent),transparent_60%)]" />
-//       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-//         <motion.div
-//           initial={{ opacity: 0, x: -30 }}
-//           whileInView={{ opacity: 1, x: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 0.7 }}
-//         >
-//           <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--gold)]">The Bridal Atelier</p>
-//           <h2 className="font-display text-5xl lg:text-7xl mt-4 leading-[1.05]">
-//             For The <br /><em className="text-[color:var(--gold)]">Forever</em> Bride
-//           </h2>
-//           <p className="mt-6 text-background/70 max-w-md leading-relaxed">
-//             A private couture experience. Hand-embroidered lehengas, regal sarees, and once-in-a-lifetime ensembles — sculpted for the most sacred day of your life.
-//           </p>
-//           <Link to="/shop" className="mt-10 inline-flex items-center gap-2 px-8 h-14 rounded-full border border-[color:var(--gold)]/60 text-[color:var(--gold)] text-sm tracking-[0.2em] uppercase hover:bg-[color:var(--gold)] hover:text-foreground transition group">
-//             Explore Bridal <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-//           </Link>
-//         </motion.div>
-//         <motion.div
-//           initial={{ opacity: 0, scale: 0.95 }}
-//           whileInView={{ opacity: 1, scale: 1 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 0.8 }}
-//           className="grid grid-cols-2 gap-4"
-//         >
-//           {[206, 205, 200, 201].map((s, i) => (
-//             <div key={i} className={`relative rounded-2xl overflow-hidden ${i % 2 === 0 ? "aspect-[3/4]" : "aspect-[3/4] mt-8"}`}>
-//               <img src={`https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=600&q=80&sig=${s}`} alt="Bridal" className="absolute inset-0 w-full h-full object-cover hover:scale-110 transition-transform duration-1000" loading="lazy" />
-//               <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
-//             </div>
-//           ))}
-//         </motion.div>
-//       </div>
-//     </section>
-//   );
-// }
+
 
 /* ---------------- TESTIMONIALS ---------------- */
 function Testimonials() {
   return (
     <section className="relative py-24 overflow-hidden">
-      <LotusWatermark className="top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px]" opacity={0.04} />
+      <LotusWatermark
+  className="top-20 left-1/2 -translate-x-1/2 w-[250px] h-[250px] md:w-[600px] md:h-[600px]"
+  opacity={0.04}
+/>
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
         <SectionHeader eyebrow="Words From Our Family" title="Loved by Women Across India" subtitle="Real stories from real women who chose Mounika's Wardrobe." />
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -442,8 +384,16 @@ function Newsletter() {
   return (
     <section className="relative py-20 px-6 lg:px-8">
       <div className="relative mx-auto max-w-5xl rounded-[2.5rem] bg-luxe overflow-hidden shadow-luxe p-10 lg:p-16 text-center text-white">
-        <LotusWatermark className="-top-20 -left-20 w-96 h-96 text-white" opacity={0.12} spin />
-        <LotusWatermark className="-bottom-32 -right-20 w-96 h-96 text-white" opacity={0.1} />
+        <LotusWatermark
+  className="-top-10 -left-10 md:-top-20 md:-left-20 w-[180px] h-[180px] md:w-96 md:h-96 text-white"
+  opacity={0.12}
+  spin
+/>
+
+<LotusWatermark
+  className="-bottom-10 -right-10 md:-bottom-32 md:-right-20 w-[180px] h-[180px] md:w-96 md:h-96 text-white"
+  opacity={0.1}
+/>
         <div className="relative">
           <LotusIcon className="w-12 h-12 mx-auto text-white" strokeWidth={1.2} />
           <p className="text-xs uppercase tracking-[0.4em] mt-4 opacity-80">Stay In The Loop</p>
