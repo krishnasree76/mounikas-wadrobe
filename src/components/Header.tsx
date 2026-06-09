@@ -18,13 +18,20 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Announcement bar */}
-      <div className="bg-luxe text-primary-foreground text-xs md:text-[13px] overflow-hidden">
-        <div className="flex animate-[shimmer_30s_linear_infinite] whitespace-nowrap py-2">
-          {[...announcements, ...announcements, ...announcements].map((a, i) => (
-            <span key={i} className="px-8 tracking-wide">{a}</span>
-          ))}
-        </div>
-      </div>
+      <div className="bg-luxe text-primary-foreground overflow-hidden">
+  <div className="flex w-max py-2 animate-[marquee_20s_linear_infinite]">
+    {[...announcements, ...announcements, ...announcements, ...announcements].map(
+      (item, index) => (
+        <span
+          key={index}
+          className="mx-8 whitespace-nowrap text-xs md:text-sm"
+        >
+          {item}
+        </span>
+      )
+    )}
+  </div>
+</div>
 
       {/* Main header */}
       <div className="glass border-b border-border/60">
